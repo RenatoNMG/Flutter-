@@ -1,6 +1,6 @@
 # primeiro_app
 
-A new Flutter project.
+Projeto Flutter
 
 ## Getting Started
 
