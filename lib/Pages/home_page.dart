@@ -40,18 +40,36 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+
     return Scaffold(
       appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Text('Minha AppBar'),
+        centerTitle: true,
+        backgroundColor: Colors.blue,
+        elevation: 4,
+        leading: Icon(Icons.menu),
+
+
+        actions: [
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              // ação do botão de busca
+            },
+          ),
+
+
+          IconButton(
+            icon: Icon(Icons.more_vert),
+            onPressed: () {
+              // ação do botão de mais opções
+            },
+          ),
+        ],
       ),
+
       body: Padding(
-        padding: const EdgeInsets.only(left: 40, top: 50),
+        padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -103,6 +121,29 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Text("  rua numero 0 "),
                 ],
+              ),
+            ),
+            SizedBox(height: 10),
+            Text("testando container"),
+            SizedBox(height: 20),
+            Container(
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 151, 0, 131),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              height: 250,
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              child: Scrollbar(
+                thumbVisibility: true,
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Text(
+                      textAlign: TextAlign.justify,
+                      "Lorem Ipsum is simply \ndummy text of the printing and typesetting \nindustry. Lorem Ipsum has been the industry's \n\n standard dummy text ever since the 1500s, \nwhen an unknown printer took a galley of\n type and scrambled it to make a type specimen \nbook. It has survived not only five\n centuries, but also the leap into electronic \ntypesetting, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
