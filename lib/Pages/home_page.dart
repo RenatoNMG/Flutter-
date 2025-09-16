@@ -19,17 +19,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  TextEditingController controllerLogin = TextEditingController();
+  TextEditingController controllerSenha = TextEditingController();
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+  void _login() {
+    print(controllerLogin.text);
   }
 
   @override
@@ -49,7 +43,6 @@ class _MyHomePageState extends State<MyHomePage> {
         elevation: 4,
         leading: Icon(Icons.menu),
 
-
         actions: [
           IconButton(
             icon: Icon(Icons.search),
@@ -57,7 +50,6 @@ class _MyHomePageState extends State<MyHomePage> {
               // ação do botão de busca
             },
           ),
-
 
           IconButton(
             icon: Icon(Icons.more_vert),
@@ -146,14 +138,45 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
+            SizedBox(height: 20),
+            TextField(
+              controller: controllerLogin,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: "Digite seu Login",
+              ),
+            ),
+            SizedBox(height: 20),
+            TextField(
+              controller: controllerSenha,
+              obscureText: true,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: "Digite sua senha",
+              ),
+            ),
+            SizedBox(height: 20),
+            SizedBox(
+              width: 350,
+              
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: WidgetStatePropertyAll(Colors.red),
+                ),
+                onPressed: _login,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.login),
+                    SizedBox(width: 10),
+                    Text("Login"),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add_circle),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
